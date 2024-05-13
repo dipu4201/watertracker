@@ -19,11 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
         foregroundColor: Colors.white,)
     ,
 
-    body: SingleChildScrollView (
-        child: Padding(
+    body:  Padding(
          padding:const EdgeInsets.all(16.0),
          child:Column(
-              children: [
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
                const Text('Tap Hare To Eat Water'),
                 const SizedBox(height: 16,),
                 Text('Today\'s water eat : $count'),
@@ -50,22 +50,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
                 const SizedBox(height:16),
                 Text('History'),
+                Expanded(child:
                 ListView.builder(
-                  primary: false,
-                  shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (context,index){
                     return ListTile(
                       title: Text('Time'),
-                      leading: Text('Time'),
+                      leading: CircleAvatar(
+                        child: Text('${index+1}'),
+                      ),
+                      trailing: Text('30'),
                     );
-                  }
-
-                )
+                  },
+                ),
+             )
         ],
        ),
-        )
-      ),
+        ),
 
     );
   }
